@@ -9,21 +9,45 @@ const Signup = ({navigation}) => {
     const [email, setEmail]=useState('')
     const [password, setPassword] =useState('')
     const [data, setData]=useState([])
-    const apiUrl='http://10.0.1.157:8081/api/singup'
+    const apiUrl='http://10.0.1.157:8081/'
+  
+    const handleSubmit = async () => {
+      // if (name === '' || email === '' || password === '') {
+      //   alert("All fields are required");
+      //   return;
+      // }
+    //usecontext
+      try {
+        // const response = await axios.get(apiUrl); // Send a GET request
+        const data = await fetch("http://localhost:8081/") 
+        let res = data.json()
+        console.log(res)
+        if (response.status === 201) {
+          alert('Signup successful');
+          console.log(response.data);
+        } else {
+          console.error('Unexpected server response:', response.status, response.statusText);
+          alert('Signup failed. Please try again later.');
+        }
+      } catch (error) {
+        console.error('Signup failed:', error);
+        alert('Signup failed. Please check your network connection and try again.');
+      }
+    };
     
+
     // const handleSubmit = async () => {
     
      
-    //   if (name === '' || email === '' || password === '') {
+    //   if (name == '' || email == '' || password == '') {
     //     alert("All fields are required");
     //     console.log(name)
     //     return;
     //     }try {
     //       console.log(name)
-    //     const res = await axios.post(apiUrl, {name, email, password} );
-        
+    //     axios.get(apiUrl).then((data)=> console.log(data))
     //     if (res.status === 201) {
-    //       alert('Signup successful');
+    //       alert('Signup successful мро');
     //       console.log(res.data);
     //     } else {
           
@@ -39,17 +63,17 @@ const Signup = ({navigation}) => {
     // };
 
     
-    const handleSubmit=()=>{
-      var bvrtgel={
-        Name:name,
-        Email:email,
-        Password:password
-      }
-      if(name=='' && email==''){
-        alert("All fields are required");
-      }
-      axios.post('https://jambalmaa-1bbe8-default-rtdb.asia-southeast1.firebasedatabase.app/bvrtgel.json', bvrtgel).then(Responce=>{alert('amjiltta bvrtgelee')}).catch((err)=>alert('noo') )
-    }
+    // const handleSubmit=()=>{
+    //   var bvrtgel={
+    //     Name:name,
+    //     Email:email,
+    //     Password:password
+    //   }
+    //   if(name=='' && email==''){
+    //     alert("All fields are required");
+    //   }
+    //   axios.post('https://jambalmaa-1bbe8-default-rtdb.asia-southeast1.firebasedatabase.app/bvrtgel.json', bvrtgel).then(Responce=>{alert('amjiltta bvrtgelee')}).catch((err)=>alert('noo') )
+    // }
     // useEffect(() => {
     //   const getData = async () => {
     //     try {
